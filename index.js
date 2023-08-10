@@ -1,8 +1,8 @@
 // Задача 1: Напишіть функцію, яка перетворює рядок в число, використовуючи Number()
 
 function stringToNumber(str) {
-  // Використовуємо Number() для перетворення рядка в число
-  // Повертаємо отримане число
+ let num = Number(str);
+ return num;
 }
 
 console.log("Завдання 1 ====================================");
@@ -12,6 +12,7 @@ console.log('stringToNumber("42")', stringToNumber("42")); // Виведе 42
 
 function isAlmostSame(num1, num2) {
   // Визначаємо, чи є різниця між двома числами меншою або рівною EPSILON
+    return Math.abs(num1 - num2) < Number.EPSILON;
 }
 
 console.log("Завдання 2 ====================================");
@@ -20,7 +21,8 @@ console.log("isAlmostSame(0.1 + 0.2, 0.3)", isAlmostSame(0.1 + 0.2, 0.3)); // В
 // Задача 3: Напишіть функцію, яка перевіряє, чи є число безпечним цілим числом
 
 function isSafeInteger(num) {
-  // Перевіряємо, чи є число меншим або рівним MAX_SAFE_INTEGER і більшим або рівним MIN_SAFE_INTEGER
+  return Math.abs(num) <= Number.MAX_SAFE_INTEGER; 
+
 }
 
 console.log("Завдання 3 ====================================");
@@ -44,7 +46,8 @@ console.log(
 // Задача 5: Напишіть функцію, яка перевіряє, чи є число надто великим для представлення в JavaScript
 
 function isTooLarge(num) {
-  // Перевіряємо, чи є число більшим за MAX_VALUE
+  num >= Number.MAX_VALUE;
+  return 'Too much';
 }
 
 console.log("Завдання 5 ====================================");
@@ -56,7 +59,9 @@ console.log(
 // Задача 6: Напишіть функцію, яка перевіряє, чи є число меншим чим  найменше можливе числове значення в JavaScript
 
 function isAlmostZero(num) {
-  // Перевіряємо, чи є число більше 0, але все ще менше за Number.MIN_VALUE
+  num <= Number.MIN_VALUE;
+  return 'I see almost nothing';
+
 }
 
 console.log("Завдання 6 ====================================");
@@ -69,7 +74,11 @@ console.log("isAlmostZero(Number.MIN_VALUE)", isAlmostZero(Number.MIN_VALUE)); /
 // Задача 7: Напишіть функцію, яка перевіряє, чи є значення цілим числом
 
 function checkIsInteger(num) {
-  // Використовуємо вбудовану функцію Number.isInteger(), щоб перевірити, чи є значення цілим числом
+ if  (Number.isInteger(num)){
+return num;
+}else{
+return false;
+}
 }
 
 console.log("Завдання 7 ====================================");
@@ -79,7 +88,12 @@ console.log("checkIsInteger(42.5)", checkIsInteger(42.5)); // Виведе false
 
 function checkIsSafeInteger(num) {
   // Використовуємо вбудовану функцію Number.isSafeInteger(), щоб перевірити, чи є значення безпечним цілим числом
-}
+  if  (Number.isSafeInteger(num)){
+    return num;
+    }else{
+    return false;
+    }
+    }
 
 console.log("Завдання 8 ====================================");
 console.log(
@@ -91,6 +105,8 @@ console.log(
 
 function convertToExponential(num) {
   // Використовуємо метод toExponential(), щоб конвертувати число в рядок з експоненційним представленням
+  let gg = num.toExponential();
+  return gg;
 }
 
 console.log("Завдання 9 ====================================");
@@ -99,7 +115,8 @@ console.log("convertToExponential(42)", convertToExponential(42)); // Вивед
 // Задача 10: Напишіть функцію, яка конвертує число в рядок з фіксованою кількістю знаків після коми
 
 function convertToFixed(num, precision) {
-  // Використовуємо метод toFixed(), щоб конвертувати число в рядок з фіксованою кількістю знаків після коми
+  let twoZero = num.toFixed(precision);
+  return twoZero;
 }
 
 console.log("Завдання 10 ====================================");
@@ -109,6 +126,8 @@ console.log("convertToFixed(42.9876, 2)", convertToFixed(42.9876, 2)); // Вив
 
 function convertToString(num) {
   // Використовуємо метод toString(), щоб конвертувати число в рядок
+  let beLine = num.toString();
+  return beLine;
 }
 
 console.log("Завдання 11 ====================================");
@@ -118,6 +137,8 @@ console.log("convertToString(42)", convertToString(42)); // Виведе "42"
 
 function convertToPrecision(num, precision) {
   // Використовуємо метод toPrecision(), щоб округлити число до вказаної довжини
+  let beRound = num.toPrecision(precision);
+  return beRound;
 }
 
 console.log("Завдання 12 ====================================");
